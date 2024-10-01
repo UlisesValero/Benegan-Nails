@@ -1,0 +1,694 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    background-image: radial-gradient(circle, pink, white);
+}
+
+.header {
+    background-color: #FADADD;
+}
+
+.brand-logo {
+    height: auto;
+    width: 15rem;
+    margin-left: 4rem;
+}
+
+.header-text {
+    font-family: "Rajdhani", sans-serif;
+    text-decoration: none;
+    color: #D4AF37;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0 2rem;
+}
+
+.header-text:hover {
+    color: whitesmoke;
+}
+
+
+.image-container-1 {
+    background-image: url(images/nails-2.jpeg);
+    background-color: rgba(34, 26, 26, 0.6); 
+    background-blend-mode: overlay;
+    position: relative;
+    height: 55rem;
+    background-size: cover; 
+    background-position: center; 
+}
+
+.overlay-text {
+    width: 30rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: #D4AF37; 
+    text-align: center;
+}
+
+.brand-name {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 3rem;
+}
+
+.brand-slogan {
+    font-family: "Rajdhani", sans-serif;
+}
+
+
+/* Button CSS */
+.type--A{
+    --line_color : #D4AF37 ;
+    --back_color : rgb(0, 0, 0)  ;
+  }
+
+.button{
+    position : relative ;
+    z-index : 0 ;
+    width : 240px ;
+    height : 56px ;
+    text-decoration : none ;
+    font-size : 14px ; 
+    font-weight : bold ;
+    color : var(--line_color) ;
+    letter-spacing : 2px ;
+    transition : all .3s ease ;
+}
+.button__text{
+    display : flex ;
+    justify-content : center ;
+    align-items : center ;
+    width : 100% ;
+    height : 100% ;
+}
+.button::before,
+.button::after,
+.button__text::before,
+.button__text::after{
+    content : '' ;
+    position : absolute ;
+    height : 3px ;
+    border-radius : 2px ;
+    background : var(--line_color) ;
+    transition : all .5s ease ;
+}
+.button::before{
+    top : 0 ;
+    left : 54px ;
+    width : calc( 100% - 56px * 2 - 16px ) ;
+}
+.button::after{
+    top : 0 ;
+    right : 54px ;
+    width : 8px ;
+}
+.button__text::before{
+    bottom : 0 ;
+    right : 54px ;
+    width : calc( 100% - 56px * 2 - 16px ) ;
+}
+.button__text::after{
+    bottom : 0 ;
+    left : 54px ;
+    width : 8px ;
+}
+.button__line{
+    position : absolute ;
+    top : 0 ;
+    width : 56px ;
+    height : 100% ;
+    overflow : hidden ;
+}
+.button__line::before{
+    content : '' ;
+    position : absolute ;
+    top : 0 ;
+    width : 150% ;
+    height : 100% ;
+    box-sizing : border-box ;
+    border-radius : 300px ;
+    border : solid 3px var(--line_color) ;
+}
+.button__line:nth-child(1),
+.button__line:nth-child(1)::before{
+    left : 0 ;
+}
+.button__line:nth-child(2),
+.button__line:nth-child(2)::before{
+    right : 0 ;
+}
+.button:hover{
+    letter-spacing : 6px ;
+}
+.button:hover::before,
+.button:hover .button__text::before{
+    width : 8px ;
+}
+.button:hover::after,
+.button:hover .button__text::after{
+    width : calc( 100% - 56px * 2 - 16px ) ;
+}
+.button__drow1,
+.button__drow2{
+    position : absolute ;
+    z-index : -1 ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+}
+.button__drow1{
+    top : -16px ;
+    left : 40px ;
+    width : 32px ;
+    height : 0;
+    transform : rotate( 30deg ) ;
+}
+.button__drow2{
+    top : 44px ;
+    left : 77px ;
+    width : 32px ;
+    height : 0 ;
+    transform : rotate(-127deg ) ;
+}
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2::before,
+.button__drow2::after{
+    content : '' ;
+    position : absolute ;
+}
+.button__drow1::before{
+    bottom : 0 ;
+    left : 0 ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( -60deg ) ;
+}
+.button__drow1::after{
+    top : -10px ;
+    left : 45px ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( 69deg ) ;
+}
+.button__drow2::before{
+    bottom : 0 ;
+    left : 0 ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( -146deg ) ;
+}
+.button__drow2::after{
+    bottom : 26px ;
+    left : -40px ;
+    width : 0 ;
+    height : 32px ;
+    border-radius : 16px ;
+    transform-origin : 16px 16px ;
+    transform : rotate( -262deg ) ;
+}
+.button__drow1,
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2,
+.button__drow2::before,
+.button__drow2::after{
+    background : var( --back_color ) ;
+}
+.button:hover .button__drow1{
+    animation : drow1 ease-in .06s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow1::before{
+    animation : drow2 linear .08s .06s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow1::after{
+    animation : drow3 linear .03s .14s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow2{
+    animation : drow4 linear .06s .2s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow2::before{
+    animation : drow3 linear .03s .26s ;
+    animation-fill-mode : forwards ;
+}
+.button:hover .button__drow2::after{
+    animation : drow5 linear .06s .32s ;
+    animation-fill-mode : forwards ;
+}
+@keyframes drow1{
+    0%   { height : 0 ; }
+    100% { height : 100px ; }
+}
+@keyframes drow2{
+    0%   { width : 0 ; opacity : 0 ;}
+    10%  { opacity : 0 ;}
+    11%  { opacity : 1 ;}
+    100% { width : 120px ; }
+}
+@keyframes drow3{
+    0%   { width : 0 ; }
+    100% { width : 80px ; }
+}
+@keyframes drow4{
+    0%   { height : 0 ; }
+    100% { height : 120px ; }
+}
+@keyframes drow5{
+    0%   { width : 0 ; }
+    100% { width : 124px ; }
+}
+
+.container{
+    width : 100% ;
+    height : 8rem ;
+    display : flex ;
+    flex-direction : column ;
+    justify-content : center ;
+    align-items : center ;
+}
+.button:not(:last-child){
+  margin-bottom : 64px ;
+}
+/* Button CSS */
+
+.image-container-2 {
+    background-image: url(images/salon-img.jpeg);
+    background-blend-mode: overlay;
+    position: relative;
+    height: 55rem;
+    background-size: cover; 
+    background-position: center; 
+    background-color: rgba(34, 26, 26, 0.6); 
+
+}
+
+#button-location {
+    position: relative;
+    top: 50%;
+}
+
+
+.footer-titles {
+    font-size: 1.5rem;
+    font-family: "Cinzel", serif;
+    color: #D4AF37;
+}
+
+.footer-links {
+    text-decoration: none;
+    font-family: "Rajdhani", sans-serif; 
+    color: black;
+}
+
+.footer-links:hover {
+    color: white;
+}
+
+.footer-images-1 {
+    width: 1.5rem;
+}
+
+.footer-images-2 {
+    width: 3rem;
+}
+
+.footer-images-3 {
+    width: 2rem;
+}
+
+.footer-text {
+    font-family: "Rajdhani", sans-serif; 
+}
+
+.footer-images-4 {
+    width: 2rem;
+}
+
+.footer-images-5 {
+    width: 3.3rem;
+}
+
+@media (max-width: 1100px) {
+    .brand-logo {
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 1037px) {
+    .brand-logo {
+        margin-left: 0rem;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .header {
+        display: block;
+        text-align: center;
+    }
+
+    .brand-logo {
+        margin: 0;
+    }
+
+    .header-text-wrapper {
+        margin-left: 0;
+        padding-bottom: 1.5rem;
+    }
+    
+    .header-text {
+        font-size: 1.3rem;
+    }
+
+
+    .image-container {
+        height: 30rem; 
+    }
+
+    .overlay-text {
+        width: 20rem;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 70%;
+        height: 30%;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .brand-logo {
+        width: 15rem;
+        height: auto;
+    }
+
+    .header-text {
+        font-size: 1.5rem;
+        display: block; 
+        margin: 0.2rem 0; 
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .overlay-text {
+        width: 15rem;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 80%;
+        height: 25%;
+    }
+}
+
+
+/* Servicios.html */
+
+.body-servicios {
+    background-color: #F6E4E1;
+}
+
+
+.servicios-container {
+    margin-bottom: 10rem;
+}
+
+.body-title {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #D4AF37;
+}
+
+.container {
+    text-align: center;
+    width: 80%;
+}
+
+
+.manicura-row {
+    width: 60%;
+    background-image: radial-gradient(circle,pink,rgba(229, 218, 224) );
+    border: 2px solid rgb(0, 0, 0); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    transition: border-color 0.3s; 
+}
+
+.manicura-row:hover {
+    border-color: #D4AF37;
+}
+
+.container-title {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #D4AF37;
+}
+
+.servicios-title {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: start;
+    color: #333333;
+}
+
+.linea-img {
+    height: 1rem;
+    object-fit: cover;   
+    width: 70%;
+}
+
+.servicios-img {
+    border-radius: 15px; 
+    height: min-content;
+}
+
+.servicios-text {
+    font-family: "Rajdhani", sans-serif;
+    text-align: start;
+    color: #333333;
+}
+
+.footer {
+    background-image: radial-gradient(circle, rgba(229, 218, 224), pink);
+    border-top: 1px solid black;
+}
+
+@media (max-width: 1200px){
+    .manicura-column {
+        display: block;
+        text-align: center;
+    }
+
+    .servicios-img-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .servicios-img {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 576px){
+    .container {
+        width: 90%;
+    }
+}
+
+
+/* sobre-nosotros.html */
+
+.body-sobre-nosotros {
+    background-color: #F6E4E1;
+}
+
+.sobre-nosotros {
+    padding: 50px 0;
+}
+
+.contenedor {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.sobre-nosotros-title {
+    text-align: center;
+    color: #D4AF37;
+    font-size: 2.5em;
+    margin-bottom: 6rem;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.equipo-img {
+    width: 45%;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.texto {
+    width: 50%;
+    padding-left: 20px;
+}
+
+.texto p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .equipo-img,
+    .texto {
+        width: 100%;
+        padding: 0;
+    }
+
+    .texto {
+        margin-top: 20px;
+    }
+}
+
+
+/* contacto.html */
+
+.contacto-body {
+    background-color: #F6E4E1;
+}
+
+.ayuda-title {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-family: "Rajdhani", sans-serif;
+    color: #D4AF37;
+}
+
+.contacto-title {
+    margin-bottom: 1.5rem;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.3rem;
+    color: #D4AF37;
+}
+
+.form-wrapper {
+    width: 15rem;
+    margin-bottom: 1rem;
+
+}
+
+.form {
+    margin-bottom: 1rem;
+}
+
+.map-container {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.maps-img {
+    display: flex;
+    justify-content: center;
+    width: 85rem;
+    position: relative;
+    margin-bottom: 5rem;
+}
+
+.pre-map-container {
+    background-color: #FADADD;
+    margin-bottom: 5rem;
+}
+
+.pre-map-text {
+    font-family: "Cinzel", serif;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 0;
+    color: #D4AF37;
+}
+
+/* diseños-destacados.html */
+
+.designs-body {
+    background-color: #F6E4E1;
+}
+
+.pre-card-wrapper {
+    background-color: #FADADD;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+}
+
+.pre-card-text {
+    font-family: "Cinzel", serif;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: #D4AF37;
+}
+
+.card-wrapper {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-color: #D4AF37;
+}
+
+.card-title {
+    color: #D4AF37; 
+    font-family: "Cinzel", serif;
+}
+
+.container {
+    height: auto;
+}
