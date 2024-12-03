@@ -660,7 +660,31 @@
 .mostrar-texto-aprobacion{
     font-size: 0.7rem;
     color: green;
-    opacity: 0;
+    visibility: hidden;
+}
+
+.name-error{
+    position: relative;
+    left: 9rem;
+    bottom: 1.5rem;
+    color: red;
+    visibility: hidden;
+}
+
+.mail-error{
+    position: relative;
+    left: 9rem;
+    bottom: 1.5rem;
+    color: red;
+    visibility: hidden;
+}
+
+.number-error{
+    position: relative;
+    left: 9rem;
+    bottom: 1.5rem;
+    color: red;
+    visibility: hidden;
 }
 
 

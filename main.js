@@ -6,79 +6,88 @@ function obtenerNombre() {
     cajaNombre.addEventListener("input", function () {
         const nombreUsuario = this.value;
         localStorage.setItem("nombreUsuario", nombreUsuario);
-    })
-};
-obtenerNombre()
+    });
+}
+obtenerNombre();
 
 function obtenerCorreo() {
     const cajaCorreo = document.getElementById('e-mail-box');
     cajaCorreo.addEventListener("input", function () {
-        const correoElectronico = this.value; 
+        const correoElectronico = this.value;
         localStorage.setItem("correoElectronico", correoElectronico);
-    })
-};
-obtenerCorreo()
+    });
+}
+obtenerCorreo();
 
 function obtenerTelefono() {
     const cajaTelefono = document.getElementById('number');
     cajaTelefono.addEventListener("input", function () {
         const numeroTelefonico = this.value;
         localStorage.setItem("numeroTelefonico", numeroTelefonico);
-    })
-};
-obtenerTelefono()
+    });
+}
+obtenerTelefono();
 
-
+function obtenerComentario(){
+    const cajaComentario = document.getElementById('suggestion-box');
+    cajaComentario.addEventListener("input", function(){
+        const comentario = this.value;
+        localStorage.setItem("comentario", comentario);
+    });
+}
+obtenerComentario();
 
 
 function validarNombre() {
     const cajaNombre = document.getElementById('full-name-box');
+    const nombreError = document.querySelector('.name-error');
     const nombreCompleto = cajaNombre.value.trim();
     const palabras = nombreCompleto.split(" ").filter(palabra => palabra !== "");
     if (palabras.length >= 2) {
-        //si es correcto y el resto de datos cumplen el formato, mostrar pestaña "Gracias por dejarnos tu comentario, nos estaremos comunicando en la brevedad"
         localStorage.setItem("nombreUsuario", nombreCompleto);
         return true;
     } else {
+        nombreError.style.visibility = 'visible';
         return false;
-        //si es incorrecto, marcar con un asterisco rojo al lado del campo "Nombre completo"
     }
 }
-document.getElementById("boton-enviar").addEventListener("click", validarNombre);
 
-function validarCorreo(){
+function validarCorreo() {
     const cajaCorreo = document.getElementById('e-mail-box');
-    const correoElectronico = cajaCorreo.value
+    const correoError = document.querySelector('.mail-error');
+    const correoElectronico = cajaCorreo.value.trim();
     const arroba = "@";
-    if (correoElectronico.includes(arroba)){
+    if (correoElectronico.includes(arroba)) {
         return true;
-        //si es correcto y el resto de datos cumplen el formato, mostrar pestaña "Gracias por dejarnos tu comentario, nos estaremos comunicando en la brevedad"
-    }else {
+    } else {
+        correoError.style.visibility = 'visible';
         return false;
-        //si es incorrecto, marcar con un asterisco rojo al lado del campo "Nombre completo"
     }
 }
-document.getElementById("boton-enviar").addEventListener("click", validarCorreo);
 
 
-function validarTelefono(){
+function validarTelefono() {
     const cajaTelefono = document.getElementById('number');
-    const numeroTelefonico = cajaTelefono.value;
-    if(isNaN(parseInt(numeroTelefonico)) || numeroTelefonico == ""){
-         return false;
-        //si es incorrecto, marcar con un asterisco rojo al lado del campo "Nombre completo"
+    const telefonoError = document.querySelector('.number-error')
+    const numeroTelefonico = cajaTelefono.value.trim();
+    if (isNaN(parseInt(numeroTelefonico)) || numeroTelefonico === "") {
+        telefonoError.style.visibility = 'visible';
+        return false;
+    } else {
+        return true; 
+    }
+}
+
+function validacionDatos() {
+    const textoAprobacion = document.querySelector('.mostrar-texto-aprobacion');
+    if (validarTelefono() && validarCorreo() && validarNombre()) {
+        textoAprobacion.style.visibility = 'visible';
     }else{
-        return true;
-        //si es correcto y el resto de datos cumplen el formato, mostrar pestaña "Gracias por dejarnos tu comentario, nos estaremos comunicando en la brevedad"
-    }
-}
-document.getElementById('boton-enviar').addEventListener("click", validarTelefono);
-
-
-
-function validacionDatos (){
-    if(validarTelefono() && validarCorreo() && validarNombre()){
-        document.querySelector('.mostrar-texto-aprobacion').style.opacity = "1"
-    }
+        alert("Ingresa correctamente los datos en los campos marcados.")
+        }
 }
 
+document.getElementById("boton-enviar").addEventListener("click", function (event) {
+    event.preventDefault();
+    validacionDatos();
+});
