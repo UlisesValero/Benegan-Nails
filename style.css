@@ -725,3 +725,13 @@
 .container {
     height: auto;
 }
+
+.invalid {
+    border: 1px solid red;
+}
+
+button { 
+    outline: none;
+    border: none;
+    background: none;
+}

@@ -40,27 +40,27 @@ obtenerComentario();
 
 function validarNombre() {
     const cajaNombre = document.getElementById('full-name-box');
-    const nombreError = document.querySelector('.name-error');
     const nombreCompleto = cajaNombre.value.trim();
     const palabras = nombreCompleto.split(" ").filter(palabra => palabra !== "");
     if (palabras.length >= 2) {
         localStorage.setItem("nombreUsuario", nombreCompleto);
+        cajaNombre.classList.remove('invalid')
         return true;
     } else {
-        nombreError.style.visibility = 'visible';
+        cajaNombre.classList.add('invalid')
         return false;
     }
 }
 
 function validarCorreo() {
     const cajaCorreo = document.getElementById('e-mail-box');
-    const correoError = document.querySelector('.mail-error');
     const correoElectronico = cajaCorreo.value.trim();
     const arroba = "@";
     if (correoElectronico.includes(arroba)) {
+        cajaCorreo.classList.remove('invalid')
         return true;
     } else {
-        correoError.style.visibility = 'visible';
+        cajaCorreo.classList.add('invalid')
         return false;
     }
 }
@@ -68,26 +68,28 @@ function validarCorreo() {
 
 function validarTelefono() {
     const cajaTelefono = document.getElementById('number');
-    const telefonoError = document.querySelector('.number-error')
     const numeroTelefonico = cajaTelefono.value.trim();
     if (isNaN(parseInt(numeroTelefonico)) || numeroTelefonico === "") {
-        telefonoError.style.visibility = 'visible';
+        cajaTelefono.classList.add('invalid')
         return false;
     } else {
+        cajaTelefono.classList.remove('invalid')
         return true; 
     }
 }
 
 function validacionDatos() {
     const textoAprobacion = document.querySelector('.mostrar-texto-aprobacion');
-    if (validarTelefono() && validarCorreo() && validarNombre()) {
+    let telefonoValido = validarTelefono()
+    let correoValido = validarCorreo()
+    let nombreValido = validarNombre()
+    if (telefonoValido && correoValido && nombreValido) {
         textoAprobacion.style.visibility = 'visible';
-    }else{
-        alert("Ingresa correctamente los datos en los campos marcados.")
-        }
+    }
 }
 
-document.getElementById("boton-enviar").addEventListener("click", function (event) {
-    event.preventDefault();
-    validacionDatos();
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault()
+    validacionDatos()
+    return true
 });
