@@ -651,6 +651,19 @@
     color: #D4AF37;
 }
 
+.container-aprobacion{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.mostrar-texto-aprobacion{
+    font-size: 0.7rem;
+    color: green;
+    opacity: 0;
+}
+
+
 /* diseños-destacados.html */
 
 .designs-body {
