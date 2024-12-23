@@ -79,17 +79,29 @@ function validarTelefono() {
 }
 
 function validacionDatos() {
-    const textoAprobacion = document.querySelector('.mostrar-texto-aprobacion');
-    let telefonoValido = validarTelefono()
-    let correoValido = validarCorreo()
-    let nombreValido = validarNombre()
-    if (telefonoValido && correoValido && nombreValido) {
-        textoAprobacion.style.visibility = 'visible';
-    }
+    let telefonoValido = validarTelefono();
+    let correoValido = validarCorreo();
+    let nombreValido = validarNombre();
+    return telefonoValido && correoValido && nombreValido;
 }
 
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault()
-    validacionDatos()
-    return true
+document.getElementById("boton").addEventListener("click", function (event) {
+    event.preventDefault();
+    if (validacionDatos()) {
+        Toastify({
+            text: "Muchas gracias por tu comentario, nos estaremos comunicando en la brevedad",
+            duration: 3000,
+            style: {
+                background: "linear-gradient(to right, rgb(218, 114, 204), rgb(128, 62, 104))",
+            }
+        }).showToast();
+
+    } else {
+    }
 });
+
+// document.getElementById("contactForm").addEventListener("submit", function (event) {
+//     event.preventDefault()
+//     validacionDatos()
+//     return true
+// });
