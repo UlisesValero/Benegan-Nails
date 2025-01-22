@@ -1,3 +1,6 @@
+//#region comentarios
+
+
 //Toda la informacion que sea depositada en la caja de comentarios, sea guardada en el localstorage
 //En el momento que el cliente clickee en el boton "enviar" le tiene que aparecer un cartel que diga "Gracias por dejarnos tu comentario, nos estaremos comunicando en la brevedad"
 
@@ -100,8 +103,6 @@ document.getElementById("boton").addEventListener("click", function (event) {
     }
 });
 
-// document.getElementById("contactForm").addEventListener("submit", function (event) {
-//     event.preventDefault()
-//     validacionDatos()
-//     return true
-// });
+
+//#endregion    
+

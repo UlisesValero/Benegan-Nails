@@ -29,14 +29,28 @@
         </nav>
     </header>
 
-
-
-
-
+    <h1>Sistema de Turnos</h1>
+  <form id="formularioTurnos">
+    <input type="text" id="nombreApellido" placeholder="Nombre y Apellido" required>
+    <input type="tel" id="numeroTelefonico" placeholder="Número Telefónico" required>
+    <input type="date" id="fecha" required>
+    <input type="time" id="hora" required>
+    <select id="servicios" required>
+      <option value="">Seleccionar Servicio</option>
+      <option value="Manicura">Manicura</option>
+      <option value="Pedicura">Pedicura</option>
+      <option value="Pestañas y cejas">Pestañas y cejas</option>
+    </select>
+    <button type="submit">Agregar Turno</button>
+  </form>
+  <h2>Lista de Turnos</h2>
+  <ul id="listaTurnos"></ul>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>   
+    crossorigin="anonymous"></script> 
+    <script src="../turnos.js"></script>
+
 </body>
 </html>
