@@ -1,5 +1,10 @@
 //#region turnos
 
+//TO-DO
+//1: cambiar servicios.html para que rediriga en pestañas y pedicuria
+//2: hacer que se pueda elegir de media hora en media hora: https://timepicker.co// - ATENTO a formato de hora.value
+//2.1: restringir el timepicker segun turnos ya seleccionados.
+
 let turnosReservados = [];
 
 const formularioTurnos = document.getElementById("formularioTurnos")
@@ -41,9 +46,15 @@ function eliminarTurno(index) {
 
 function almacenarInformacion(){
     localStorage.setItem("turnos", JSON.stringify(turnosReservados));
+    console.log(turnos)
 }
 
 function devolverInformacion(){
+    const servicio = window.location?.href?.split('=')[1] ?? ''
+
+    if (servicio)
+        document.getElementById('servicios').value = servicio
+
     const turnosAlmacenados = localStorage.getItem("turnos");
     if(turnosAlmacenados){
         turnosReservados = JSON.parse(turnosAlmacenados);
